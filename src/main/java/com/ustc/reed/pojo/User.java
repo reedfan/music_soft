@@ -46,4 +46,9 @@ public class User {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
+    @Override
+    public String toString() {
+        return id+"id"+username+"userName"+password+"password"+birthday+"birthday";
+    }
 }
