@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.ustc.reed.pojo.User;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,33 +14,6 @@ import java.io.IOException;
 import java.util.Date;
 
 public class JsonUtil {
-
-    @Test
-    public void test() {
-
-        User user = new User();
-        user.setId("12345");
-        user.setBirthday(new Date());
-        user.setUsername("reed");
-        user.setPassword("haha");
-
-
-        String userStr = JSONObject.toJSONString(user);
-
-        User user1 = (User)readObjectFromJson(userStr,User.class);
-
-        System.out.println(user1.toString());
-
-
-
-
-
-
-
-       // readObjectFromJson()
-
-    }
-
 
     private static final Logger logger = LoggerFactory.getLogger(JsonUtil.class);
 

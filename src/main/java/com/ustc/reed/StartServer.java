@@ -10,10 +10,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableCaching
 @EnableSwagger2
 @MapperScan("com.ustc.reed.mapper")
-public class Sb01Application {
+public class StartServer {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(Sb01Application.class, args);
+		SpringApplication.run(StartServer.class, args);
 	}
 }
