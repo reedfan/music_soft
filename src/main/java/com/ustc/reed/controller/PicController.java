@@ -5,6 +5,7 @@ import com.ustc.reed.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,6 +52,21 @@ public class PicController {
         return msg;
 
     }
+
+
+    @GetMapping("/show")
+    public ResponseEntity showPhotos(String fileName){
+
+        try {
+            return ResponseEntity.ok(resourceLoader.getResource("file:"+path+fileName));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+
+
 
 
 

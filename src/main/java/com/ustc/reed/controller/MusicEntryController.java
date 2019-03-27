@@ -4,6 +4,8 @@ package com.ustc.reed.controller;
 import com.ustc.reed.common.CommonRet;
 import com.ustc.reed.pojo.MusicEntry;
 import com.ustc.reed.service.MusicEntryService;
+import com.ustc.reed.utils.RedisUtils;
+import com.ustc.reed.vo.MusicEntryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +18,16 @@ public class MusicEntryController {
     private MusicEntryService musicEntryService;
 
     @GetMapping("/find_music_entry_by_keywords/keyWords")
-    public MusicEntry findEntryByEntryKeywords(@RequestParam(value = "keyWords", required = true,defaultValue = "qinghuaci")String keyWords){
-        return musicEntryService.findEntryByEntryKeywords(keyWords);
+    public MusicEntryVo findEntryByEntryKeywords(@RequestParam(value = "keyWords", required = true,defaultValue = "qinghuaci")String keyWords){
+        MusicEntryVo musicEntryVo = new MusicEntryVo();
+        MusicEntry musicEntry = musicEntryService.findEntryByEntryKeywords(keyWords);
+        musicEntryVo.setMusicEntry(musicEntry);
+        long num = 1;
+        if(RedisUtils.get("") != null){
+            num = RedisUtils.incr("")
+        }
+        RedisUtils.incr("",0);
+        return musicEntryVo;
     }
 
     @PostMapping("/add")

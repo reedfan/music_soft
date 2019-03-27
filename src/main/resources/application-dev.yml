@@ -1,22 +1,21 @@
-server:
-  port: 8084
-  tomcat:
-    uri-encoding: UTF-8
-  servlet:
-    context-path: /reed
+#server:
+#  port: 8084
+#  tomcat:
+#    uri-encoding: UTF-8
+#  servlet:
+#    context-path: /reed
 
-book:
-  author: reed
-  price: 19
-
-cupSize: B
+#静态图片获取
 spring:
-
-
-
-  #  jpa:
-#    hibernate:
-#      ddl-auto: create
+#  mvc:
+#    static-path-pattern: /image/**
+#  resources:
+#    static-locations: file:/Users/qufan/Downloads/pic/
+  #设置上传文件的最大的大小
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
   http:
     encoding:
       charset: UTF-8
@@ -55,11 +54,7 @@ mybatis:
   type-aliases-package: com.ustc.reed.pojo                       # 定义所有操作类的别名所在包
 
 
-upload-path: /Users/qufan/Downloads/pictest
-
-
-
-
+upload-path: /Users/qufan/Downloads/pic/
 
 
 #   设置日志级别和日志路径
