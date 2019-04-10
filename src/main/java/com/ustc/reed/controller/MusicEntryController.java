@@ -6,6 +6,7 @@ import com.ustc.reed.pojo.MusicEntry;
 import com.ustc.reed.service.MusicEntryService;
 import com.ustc.reed.utils.RedisUtils;
 import com.ustc.reed.vo.MusicEntryVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,12 +22,14 @@ public class MusicEntryController {
     public MusicEntryVo findEntryByEntryKeywords(@RequestParam(value = "keyWords", required = true,defaultValue = "qinghuaci")String keyWords){
         MusicEntryVo musicEntryVo = new MusicEntryVo();
         MusicEntry musicEntry = musicEntryService.findEntryByEntryKeywords(keyWords);
-        musicEntryVo.setMusicEntry(musicEntry);
+        BeanUtils.copyProperties(musicEntry,musicEntryVo);
+        musicEntryVo.setCreateUser("苏日乐格");
         long num = 1;
-        if(RedisUtils.get("") != null){
-            num = RedisUtils.incr("")
-        }
-        RedisUtils.incr("",0);
+//        if(RedisUtils.get("") != null){
+//            num = RedisUtils.incr("")
+//        }
+//        RedisUtils.incr("",0);
+        musicEntryVo.setViewCounts(num);
         return musicEntryVo;
     }
 
@@ -35,11 +38,7 @@ public class MusicEntryController {
         CommonRet commonRet = new CommonRet();
         commonRet = musicEntryService.addEntry(musicEntry);
         return commonRet;
-
     }
-
-
-
 
 
 }

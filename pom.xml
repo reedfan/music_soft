@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ustc.reed</groupId>
-	<artifactId>sb01</artifactId>
+	<artifactId>music_entry</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>sb01</name>

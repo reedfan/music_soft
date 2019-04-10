@@ -13,7 +13,8 @@ public class MyWebAppConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/image/**").addResourceLocations("file:/Users/qufan/Downloads/pic/");
+      //  registry.addResourceHandler("/image/**").addResourceLocations("file:/Users/qufan/Downloads/pic/");
+        registry.addResourceHandler("/image/**").addResourceLocations("file:/home/pic");
     }
 
 }
