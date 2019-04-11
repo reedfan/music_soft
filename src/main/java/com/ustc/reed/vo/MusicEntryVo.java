@@ -15,5 +15,4 @@ public class MusicEntryVo {
     private String createUser;
     private Date createTime;
     private Date updateTime;
-
 }
