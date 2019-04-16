@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,7 @@ public class MusicEntryController {
     @Autowired
     private MusicEntryService musicEntryService;
 
-    @GetMapping("/find_music_entry_by_keywords/keyWords")
+    @GetMapping("/find_music_entry_by_keywords")
     public MusicEntryVo findEntryByEntryKeywords(@RequestParam(value = "keyWords", required = true,defaultValue = "qinghuaci")String keyWords){
         MusicEntryVo musicEntryVo = new MusicEntryVo();
         MusicEntry musicEntry = musicEntryService.findEntryByEntryKeywords(keyWords);
@@ -36,12 +37,12 @@ public class MusicEntryController {
         BeanUtils.copyProperties(musicEntry,musicEntryVo);
         musicEntryVo.setCreateUser("苏日乐格");
         long num = 1;
-        String redisKey = RedisKeyEnum.MUSIC_ENTRY_COUNT+musicEntry.getEntryKeywords();
-        if(RedisUtils.get(redisKey) != null){
-            num = RedisUtils.incr(redisKey,num);
-        }else {
-            RedisUtils.set(redisKey,num);
-        }
+//        String redisKey = RedisKeyEnum.MUSIC_ENTRY_COUNT+musicEntry.getEntryKeywords();
+//        if(RedisUtils.get(redisKey) != null){
+//            num = RedisUtils.incr(redisKey,num);
+//        }else {
+//            RedisUtils.set(redisKey,num);
+//        }
         musicEntryVo.setViewCounts(num);
         return musicEntryVo;
     }
