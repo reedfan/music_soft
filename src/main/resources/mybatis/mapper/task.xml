@@ -6,19 +6,22 @@
 <mapper namespace="com.ustc.reed.mapper.TaskMapper">
 
     <!-- 自定义返回结果集 -->
-    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.MusicEntry">
-        <id property="id" column="id" javaType="java.lang.Long"></id>
-        <result column="entry_keywords" property="entryKeywords" jdbcType="VARCHAR"></result>
-        <result column="official_explain" property="officialExplain" javaType="java.lang.String"></result>
-        <result column="oral_explain" property="oralExplain" javaType="java.lang.String"></result>
-        <result column="create_user_id" property="createUserId" javaType="java.lang.Long"></result>
-        <result column="create_time" property="createTime" javaType="java.util.Date"></result>
-        <result column="update_time" property="updateTime" javaType="java.util.Date"></result>
+    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.DtTask">
+
     </resultMap>
     <!-- 通过ID查询一个用户 -->
     <select id="findTasks" resultType="Integer">
         select count(*)  from dt_task where u_id=0 and  status &lt; 2
     </select>
+
+
+    <select id="findUserListCount" resultType="Integer">
+        select count(*)  from dt_user where status = 1
+    </select>
+
+
+
+
 
 
 </mapper>

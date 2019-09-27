@@ -2,9 +2,8 @@ package com.ustc.reed.utils;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.http.HttpRequest;
 
-/**
- * created by reedfan on 2019/9/27 0027
- */
+
+
 public class Zysmscode {
     public static String sms(String mobile,String smscode) throws Exception {
         String url = "http://api.mix2.zthysms.com/v2/sendSmsTp";
@@ -26,20 +25,23 @@ public class Zysmscode {
         json.put("username", "fywhhy");
         json.put("password", pwd);
         json.put("records", json1.toString());
+        System.out.println(json1.toJSONString());
         json.put("signature", "【小白赚钱】");
+        System.out.println("ti   "   +timestr);
         json.put("tKey", timestr);
+        return "";
 
-        System.out.println("json:"+json.toString());
+//        System.out.println("json:"+json.toString());
+//
+//        String result = HttpRequest.post(url, json.toString(), "utf-8");
+//
+//        System.out.println(result);
+//
+//        JSONObject jsStr = JSONObject.fromObject(result);
+//
+//        System.out.println(jsStr.get("code"));
 
-        String result = HttpRequest.post(url, json.toString(), "utf-8");
-
-        System.out.println(result);
-
-        JSONObject jsStr = JSONObject.fromObject(result);
-
-        System.out.println(jsStr.get("code"));
-
-        return jsStr.get("code").toString();
+       // return jsStr.get("code").toString();
     }
     public static void main(String[] args) throws Exception {
         //普通短信

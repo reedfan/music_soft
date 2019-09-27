@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustc.reed.mapper.UserMapper">
+
+    <!-- 自定义返回结果集 -->
+    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.DtUser">
+        <id column="u_id" property="uId"  javaType="java.lang.Integer"></id>
+        <result column="account" property="account" javaType="java.lang.String"></result>
+        <result column="password" property="password" javaType="java.lang.String"></result>
+
+        <result column="avatar" property="avatar" javaType="java.lang.String"></result>
+
+        <result column="nick" property="nick" javaType="java.lang.String"></result>
+        <result column="gender" property="gender" javaType="java.lang.String"></result>
+
+        <result column="birthday" property="birthday" javaType="java.lang.Integer"></result>
+
+        <result column="mobile" property="mobile" javaType="java.lang.String"></result>
+        <result column="money" property="money" javaType="java.lang.Double"></result>
+
+        <result column="moneycount" property="moneyCount" javaType="java.lang.Double"></result>
+
+        <result column="number" property="number" javaType="java.lang.Integer"></result>
+        <result column="refer" property="refer" javaType="java.lang.Integer"></result>
+
+        <result column="recode" property="recode" javaType="java.lang.String"></result>
+
+        <result column="status" property="status" javaType="java.lang.Integer"></result>
+        <result column="createtime" property="createTime" javaType="java.lang.Integer"></result>
+        <result column="flag" property="flag" javaType="java.lang.Integer"></result>
+
+
+    </resultMap>
+
+
+    <select id="findUserForMobile" resultMap="BaseResultMap">
+        select * From dt_user where mobile= #{phoneNumber} and status=1
+    </select>
+
+
+
+
+</mapper>
