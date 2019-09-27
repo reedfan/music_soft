@@ -15,7 +15,7 @@ public class FieldUtils {
             Field.setAccessible(fields, true);
             for(Field field:fields){
                 if(field.get(o) == null){
-                    commonRet.setCode(CommonRet.ERROR);
+                    commonRet.setStatus(CommonRet.ERROR);
                     String msg = commonRet.getMsg()+" "+field.getName()+"不能为空";
                     commonRet.setMsg(msg);
                 }
