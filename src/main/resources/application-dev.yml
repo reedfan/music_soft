@@ -28,7 +28,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://101.37.77.127:3306/renwu?useUnicode=true&characterEncoding=UTF-8
     username: renwu
-    password:
+    password: renwu@201901
 
 
   mail:

@@ -1,28 +1,13 @@
 package com.ustc.reed.controller;
 
 
-import com.ustc.reed.common.CommonRet;
-import com.ustc.reed.common.RedisKeyEnum;
-import com.ustc.reed.pojo.MusicEntry;
-import com.ustc.reed.service.MusicEntryService;
-import com.ustc.reed.utils.FieldUtils;
-import com.ustc.reed.utils.RedisUtils;
-import com.ustc.reed.vo.MusicEntryBo;
-import com.ustc.reed.vo.MusicEntryVo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(value = "/music_entry")
 public class MusicEntryController {
 
-    private static Logger logger = LoggerFactory.getLogger(MusicEntryController.class);
+   /* private static Logger logger = LoggerFactory.getLogger(MusicEntryController.class);
 
     @Autowired
     private MusicEntryService musicEntryService;
@@ -65,6 +50,6 @@ public class MusicEntryController {
         commonRet = musicEntryService.addEntry(musicEntry);
         return commonRet;
     }
-
+*/
 
 }
