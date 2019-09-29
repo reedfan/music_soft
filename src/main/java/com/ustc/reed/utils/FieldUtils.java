@@ -17,7 +17,7 @@ public class FieldUtils {
                 if(field.get(o) == null){
                     commonRet.setStatus(CommonRet.ERROR);
                     String msg = commonRet.getCode()+" "+field.getName()+"不能为空";
-                    commonRet.setCode(msg);
+                    commonRet.setStatus(msg);
                 }
 
             }

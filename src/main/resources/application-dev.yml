@@ -57,6 +57,10 @@ mybatis:
 
 upload-path: /Users/qufan/Downloads/pic/
 
+cache:
+  spec[home]: initialCapacity=1000,maximumSize=2000,expireAfterWrite=10s
+
+
 
 #   设置日志级别和日志路径
 #logging:

@@ -3,6 +3,7 @@ package com.ustc.reed.controller;
 import com.ustc.reed.common.CommonRet;
 import com.ustc.reed.pojo.BottomColumnVO;
 import com.ustc.reed.service.BottomColumnService;
+import com.ustc.reed.service.CycleUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,31 +14,28 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class BottomController {
+public class CycleUrlController {
     @Autowired
-    private BottomColumnService bottomColumnService;
+    private CycleUrlService cycleUrlService;
 
 
-    @PostMapping("/add_bottom_column")
-    public CommonRet addBottomColumn(
-
-            @RequestParam(value = "bottom_column", required = true)String bottomColumn,
-            @RequestParam(value = "bottom_column_url", required = true)String bottomColumnUrl){
+    @PostMapping("/add_cycle_url")
+    public CommonRet addBottomColumn(){
 
         CommonRet commonRet = new CommonRet();
-        Integer data = bottomColumnService.addBottomColumn(1,bottomColumn,"www.ustc.url");
+        Integer data = cycleUrlService.addCycleUrl();
         commonRet.setData(data);
 
         return commonRet;
 
     }
 
-    @GetMapping("/bottom_column_list")
-    public CommonRet getbottomColumnList(){
+    @GetMapping("/cycle_url_list")
+    public CommonRet getCycleUrlList(){
         CommonRet commonRet = new CommonRet();
-        Map<String, List<BottomColumnVO>> map = bottomColumnService.bottomColumnList();
+        List<String> cycleUrlList = cycleUrlService.getCycleUrlList();
 
-        commonRet.setData(map);
+        commonRet.setData(cycleUrlList);
         return commonRet;
     }
 

@@ -37,23 +37,23 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.ustc.reed.mapper"
+        <!--<sqlMapGenerator targetPackage="com.ustc.reed.mapper"
                          targetProject="src\main\resources">
-            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            &lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
-        <!-- targetPackage：mapper接口生成的位置 -->
+        &lt;!&ndash; targetPackage：mapper接口生成的位置 &ndash;&gt;
         <javaClientGenerator type="XMLMAPPER"
                              targetPackage="com.ustc.reed.mapper"
                              targetProject="src\main\java">
-            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            &lt;!&ndash; enableSubPackages:是否让schema作为包的后缀 &ndash;&gt;
             <property name="enableSubPackages" value="false" />
-        </javaClientGenerator>
+        </javaClientGenerator>-->
         <!-- 指定数据库表 -->
        <!-- <table tableName="dt_task">
             <generatedKey column="t_id" sqlStatement="MySql" identity="true"/>
         </table>-->
-        <table tableName="tb_bottom_column">
+        <table tableName="tb_bottom_cate">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
