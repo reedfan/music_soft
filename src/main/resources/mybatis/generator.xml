@@ -17,9 +17,9 @@
         <!--password="${jdbc.password}">-->
         <!--</jdbcConnection>-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://101.37.77.127:3306/renwu?characterEncoding=UTF-8"
-                        userId="renwu"
-                        password="">
+                        connectionURL="jdbc:mysql://47.101.47.253:3306/wenda?characterEncoding=UTF-8"
+                        userId="root"
+                        password="reedfan1991">
         </jdbcConnection>
 
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
@@ -53,9 +53,9 @@
        <!-- <table tableName="dt_task">
             <generatedKey column="t_id" sqlStatement="MySql" identity="true"/>
         </table>-->
-        <!--<table tableName="wenda_user">-->
-            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
-        <!--</table>-->
+        <table tableName="tb_bottom_column">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
          <!--有些表的字段需要指定java类型-->
          <!--<table schema="" tableName="user">

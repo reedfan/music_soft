@@ -2,7 +2,8 @@ package com.ustc.reed.common;
 
 public class CommonRet {
     private String status;
-    private String msg;
+    private String code;
+    private Object data;
     public final static String SUCCESS = "A00000";
     public final static String SUCCESS_MSG = "success";
     public final static String ERROR = "A00001";
@@ -12,9 +13,9 @@ public class CommonRet {
         this(SUCCESS, SUCCESS_MSG);
     }
 
-    public CommonRet(String status, String msg) {
+    public CommonRet(String status, String code) {
         this.status = status;
-        this.msg = msg;
+        this.code = code;
     }
 
     public String getStatus() {
@@ -24,12 +25,21 @@ public class CommonRet {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    public String getMsg() {
-        return msg;
+    public String getCode() {
+        return code;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setCode(String code) {
+        this.code = code;
     }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+
 }
