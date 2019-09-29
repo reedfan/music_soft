@@ -53,7 +53,7 @@
        <!-- <table tableName="dt_task">
             <generatedKey column="t_id" sqlStatement="MySql" identity="true"/>
         </table>-->
-        <table tableName="tb_bottom_cate">
+        <table tableName="tb_sys_admin">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 

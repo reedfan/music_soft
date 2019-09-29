@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustc.reed.mapper.TbSysAdminMapper">
+
+    <!-- 自定义返回结果集 -->
+    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.TbSysAdmin">
+        <id column="id" property="id"  javaType="java.lang.Integer"></id>
+        <result column="user_name" property="userName" javaType="java.lang.String"></result>
+        <result column="pass_word" property="passWord" javaType="java.lang.String"></result>
+        <result column="phone_number" property="phoneNumber" javaType="java.lang.String"></result>
+
+    </resultMap>
+
+    <!--keyProperty="id" useGeneratedKeys="true"返回自增长主键-->
+
+    <!--<insert id="addBottomColumn" >-->
+        <!--INSERT INTO tb_bottom_column(cate_id,bottom_column,bottom_column_url) VALUES (#{cateId},#{bottomColumn},#{bottomColumnUrl}) ;-->
+    <!--</insert>-->
+
+
+    <select id="selectSysAdminByPhoneNumber" resultMap="BaseResultMap">
+        select user_name,phone_number From tb_sys_admin  where phone_number = #{phoneNumber} AND pass_word = #{passWord}
+    </select>
+</mapper>
