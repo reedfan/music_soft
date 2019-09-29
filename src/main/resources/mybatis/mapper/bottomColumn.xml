@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustc.reed.mapper.BottomColumnMapper">
+
+
+
+    <!-- 自定义返回结果集 -->
+    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.TbBottomColumn">
+        <id column="id" property="id"  javaType="java.lang.Integer"></id>
+        <result column="cate_id" property="cateId" javaType="java.lang.Integer"></result>
+        <result column="bottom_cate" property="bottomCate" javaType="java.lang.String"></result>
+        <result column="bottom_column" property="bottomColumn" javaType="java.lang.String"></result>
+
+        <result column="bottom_column_url" property="bottomColumnUrl" javaType="java.lang.String"></result>
+
+
+    </resultMap>
+
+    <!--keyProperty="id" useGeneratedKeys="true"返回自增长主键-->
+
+    <insert id="addBottomColumn" >
+        INSERT INTO tb_bottom_column(cate_id,bottom_column,bottom_column_url) VALUES (#{cateId},#{bottomColumn},#{bottomColumnUrl}) ;
+    </insert>
+
+
+    <select id="findBottomColumnList" resultMap="BaseResultMap">
+        select b.bottom_cate, a.bottom_column,a.bottom_column_url From tb_bottom_column a, tb_bottom_cate b where a.cate_id = b.id
+    </select>
+</mapper>

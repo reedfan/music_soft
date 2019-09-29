@@ -19,7 +19,7 @@ public class LoginController {
                            @RequestParam(value = "password", required = true) String password){
         CommonRet ret = new CommonRet();
         ret.setStatus("success");
-        ret.setMsg("登录成功");
+
         return ret;
 
 

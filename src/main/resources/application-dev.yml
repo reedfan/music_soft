@@ -26,9 +26,9 @@ spring:
     encoding: UTF-8
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://101.37.77.127:3306/renwu?useUnicode=true&characterEncoding=UTF-8
-    username: renwu
-    password:
+    url: jdbc:mysql://47.101.47.253:3306/wenda?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: reedfan1991
 
 
   mail:
@@ -56,6 +56,10 @@ mybatis:
 
 
 upload-path: /Users/qufan/Downloads/pic/
+
+cache:
+  spec[home]: initialCapacity=1000,maximumSize=2000,expireAfterWrite=10s
+
 
 
 #   设置日志级别和日志路径
