@@ -18,8 +18,9 @@ public class CycleUrlService {
         return cycleUrlMapper.addCycleUrl("www.alibaba.com");
     }
 
-    @Cacheable(cacheNames ={"home"} ,key = "'bottomColumnList'")
+    @Cacheable(cacheNames ={"home"} ,key = "'getCycleUrlList'")
     public List<String> getCycleUrlList(){
+        //throw new Exception();
         return cycleUrlMapper.findCycleUrlList();
     }
 }

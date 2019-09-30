@@ -44,9 +44,13 @@ public class BottomController {
         CommonRet commonRet = new CommonRet();
         Map<String, Object> resMap = new HashMap<>();
         Map<String, List<BottomColumnVO>> map = bottomColumnService.bottomColumnList();
-        List<TbColumnLink> bottomColumnList = columnLinkService.findColumnLinkList(Constants.BOTTOM_LINK_TYPE);
-        resMap.put("bottomColumn", map);
-        resMap.put("ColumnLink", bottomColumnList);
+        List<TbColumnLink> bottomLinkList = columnLinkService.findColumnLinkList(Constants.BOTTOM_LINK_TYPE);
+        List<TbColumnLink> bottomColumnList = columnLinkService.findColumnLinkList(Constants.BOTTOM_COLUMN_TYPE);
+        resMap.put("bottomColumnMap", map);
+        resMap.put("ColumnLink", bottomLinkList);
+        resMap.put("bottomColumnList", bottomColumnList);
+        resMap.put("bottomDescription","© 2008-2019 南通企智网络工程有限公司 版权所有   苏ICP备08016937号   腾云网是南通企智网络工程有限公司旗下建站品牌  地址：江苏省南通市工农路488号软件园A座1F   \n" +
+                "    网站地图   站长统计  售前咨询：4008-400-301  售后服务：4008-868-220 ");
         commonRet.setData(resMap);
         return commonRet;
     }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/pic")
+// @RequestMapping("/pic")
 public class PicController {
 
     private final ResourceLoader resourceLoader;
@@ -27,7 +27,7 @@ public class PicController {
     @Value("${upload-path}")
     private String path;
 
-    @GetMapping("test")
+  //  @GetMapping("test")
     public ModelAndView toUpload(ModelAndView modelAndView){
 
         modelAndView.setViewName("test");
@@ -37,7 +37,7 @@ public class PicController {
 
 
 
-    @PostMapping("/file")
+//    @PostMapping("/file")
     public String upload(@RequestParam("fileName")MultipartFile file, Map<String,Object> map){
         // 要上传的目标文件存放路径
         String localPath = "/Users/qufan/Downloads/pic";
@@ -54,7 +54,7 @@ public class PicController {
     }
 
 
-    @GetMapping("/show")
+  //  @GetMapping("/show")
     public ResponseEntity showPhotos(String fileName){
 
         try {

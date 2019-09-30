@@ -19,7 +19,7 @@ public class CycleUrlController {
     private CycleUrlService cycleUrlService;
 
 
-    @PostMapping("/add_cycle_url")
+    @PostMapping("/admin/add_cycle_url")
     public CommonRet addBottomColumn(){
 
         CommonRet commonRet = new CommonRet();
@@ -30,8 +30,8 @@ public class CycleUrlController {
 
     }
 
-    @GetMapping("/cycle_url_list")
-    public CommonRet getCycleUrlList(){
+    @GetMapping("/api/cycle_url_list")
+    public CommonRet getCycleUrlList () {
         CommonRet commonRet = new CommonRet();
         List<String> cycleUrlList = cycleUrlService.getCycleUrlList();
 

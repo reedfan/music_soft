@@ -6,4 +6,5 @@ package com.ustc.reed.utils;
 public class Constants {
     public static Integer TOP_LINK_TYPE = 1;
     public static Integer BOTTOM_LINK_TYPE = 2;
+    public static Integer BOTTOM_COLUMN_TYPE = 3;
 }

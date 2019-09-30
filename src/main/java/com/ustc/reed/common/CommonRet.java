@@ -3,31 +3,25 @@ package com.ustc.reed.common;
 
 
 public class CommonRet {
-    private String status;
+    private boolean success;
     private int code;
     private Object data;
-    public final static String SUCCESS = "success";
+    private String message;
+
     public final static Integer SUCCESS_Code = 200;
-    public final static String ERROR = "general internal error";
-    public final static String ERROR_MSG = "500";
+
+    public final static Integer ERROR_code = 500;
 
     public CommonRet() {
-        this(SUCCESS, SUCCESS_Code);
+        this(true, SUCCESS_Code);
     }
 
-    public CommonRet(String status, Integer code) {
-        this.status = status;
+    public CommonRet(boolean status, Integer code) {
+        this.success = status;
         this.code = code;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
@@ -43,5 +37,19 @@ public class CommonRet {
         this.data = data;
     }
 
+    public boolean isSuccess() {
+        return success;
+    }
 
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

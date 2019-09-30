@@ -20,7 +20,7 @@
     <!--keyProperty="id" useGeneratedKeys="true"返回自增长主键-->
 
     <insert id="addColumnLink" >
-        INSERT INTO tb_bottom_column(column_link_name,column_link_url,column_type) VALUES (#{columnLinkName},#{columnLinkUrl},#{columnType}) ;
+        INSERT INTO tb_column_link(column_link_name,column_link_url,column_type) VALUES (#{columnLinkName},#{columnLinkUrl},#{columnType}) ;
     </insert>
 
 
