@@ -9,7 +9,7 @@ import lombok.Data;
 public class MusicEntryNotFoundException extends RuntimeException {
     private String keyWords;
     public MusicEntryNotFoundException(String keyWords){
-        super("keyWords not exist");
+        super(keyWords);
         this.keyWords = keyWords;
     }
 }

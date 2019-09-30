@@ -16,7 +16,7 @@ import java.util.Map;
 
 @ControllerAdvice  //@ControllerAdvice是一个@Component，用于定义@ExceptionHandler
 public class ControllerExceptionHandler {
-    @ExceptionHandler(Exception.class)  //    表明其用于处理MusicEntryNotFoundException异常
+    @ExceptionHandler(MusicEntryNotFoundException.class)  //    表明其用于处理MusicEntryNotFoundException异常
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public CommonRet handlerMusicEntryNotFoundException(MusicEntryNotFoundException ex){

@@ -1,6 +1,7 @@
 package com.ustc.reed.service;
 
 
+import com.ustc.reed.exception.MusicEntryNotFoundException;
 import com.ustc.reed.mapper.CycleUrlMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -20,7 +21,13 @@ public class CycleUrlService {
 
     @Cacheable(cacheNames ={"home"} ,key = "'getCycleUrlList'")
     public List<String> getCycleUrlList(){
-        //throw new Exception();
-        return cycleUrlMapper.findCycleUrlList();
+        List<String> list = null;
+        try {
+            int i = 1/0;
+            list = cycleUrlMapper.findCycleUrlList();
+        } catch (Exception e) {
+            throw new MusicEntryNotFoundException("findCycleUrlList error");
+        }
+           return list;
     }
 }
