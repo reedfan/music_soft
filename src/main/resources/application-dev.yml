@@ -7,11 +7,11 @@
 
 #静态图片获取
 spring:
-#  mvc:
-#    static-path-pattern: /image/**
-#  resources:
-#    static-locations: file:/home/pic/
- #   static-locations: file:/Users/qufan/Downloads/pic/
+  #  mvc:
+  #    static-path-pattern: /image/**
+  #  resources:
+  #    static-locations: file:/home/pic/
+  #   static-locations: file:/Users/qufan/Downloads/pic/
   #设置上传文件的最大的大小
   servlet:
     multipart:
@@ -63,11 +63,11 @@ cache:
 
 
 #   设置日志级别和日志路径
-#logging:
-#  file: /Users/qufan/Documents/log/sb01.log
-#  level:
-#    com:
-#      ustc:
-#        reed: DEBUG
+logging:
+  file: /Users/qufan/Documents/log/cms.log
+  level:
+    com:
+      ustc:
+       reed: ERROR
 
 
