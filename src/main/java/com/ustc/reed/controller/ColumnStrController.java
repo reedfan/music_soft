@@ -1,10 +1,10 @@
 package com.ustc.reed.controller;
 
 import com.ustc.reed.common.CommonRet;
-import com.ustc.reed.mapper.ColumnLinkMapper;
 import com.ustc.reed.pojo.TbColumnLink;
+import com.ustc.reed.pojo.TbColumnStr;
 import com.ustc.reed.service.ColumnLinkService;
-import com.ustc.reed.utils.Constants;
+import com.ustc.reed.service.ColumnStrService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,17 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ColumnLinkController {
+public class ColumnStrController {
+
 
     @Autowired
-    private ColumnLinkService columnLinkService;
+    private ColumnStrService columnStrService;
 
-    @PostMapping("/admin/add_column_link")
-    public CommonRet addColumnLink(@RequestParam(value = "column_link_name", required = true) String columnLinkName,
-
-                                   @RequestParam(value = "column_link_url", required = true)String columnLinkUrl){
+    @PostMapping("/admin/add_column_str")
+    public CommonRet addColumnLink(@RequestParam(value = "column_str", required = true) String columnStr){
         CommonRet commonRet = new CommonRet();
-        Integer res = columnLinkService.addColumnLink(columnLinkName,columnLinkUrl);
+        Integer res = columnStrService.addColumnLink(columnStr);
         commonRet.setData(res);
         return commonRet;
     }
@@ -38,19 +37,10 @@ public class ColumnLinkController {
 //    }
 
 
-    @GetMapping("/api/find_column_link")
-    public CommonRet findColumnLinkList(){
+    @GetMapping("/api/find_column_str")
+    public CommonRet findColumnStrList(){
         CommonRet commonRet = new CommonRet();
-        List<TbColumnLink> list = columnLinkService.findColumnLinkList();
-        commonRet.setData(list);
-        return commonRet;
-    }
-
-
-    @GetMapping("/api/find_top_column_link")
-    public CommonRet findTopColumnLinkList(){
-        CommonRet commonRet = new CommonRet();
-        List<TbColumnLink> list = columnLinkService.findColumnLinkList();
+        List<TbColumnStr> list = columnStrService.findColumnLinkList();
         commonRet.setData(list);
         return commonRet;
     }

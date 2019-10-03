@@ -5,8 +5,10 @@ import com.ustc.reed.mapper.ColumnLinkMapper;
 import com.ustc.reed.pojo.BottomColumnVO;
 import com.ustc.reed.pojo.TbBottomColumn;
 import com.ustc.reed.pojo.TbColumnLink;
+import com.ustc.reed.pojo.TbColumnStr;
 import com.ustc.reed.service.BottomColumnService;
 import com.ustc.reed.service.ColumnLinkService;
+import com.ustc.reed.service.ColumnStrService;
 import com.ustc.reed.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,9 @@ public class BottomController {
     @Autowired
     private ColumnLinkService columnLinkService;
 
+    @Autowired
+    private ColumnStrService columnStrService;
+
 
     @PostMapping("/admin/add_bottom_column")
     public CommonRet addBottomColumn(
@@ -44,11 +49,11 @@ public class BottomController {
         CommonRet commonRet = new CommonRet();
         Map<String, Object> resMap = new HashMap<>();
         Map<String, List<BottomColumnVO>> map = bottomColumnService.bottomColumnList();
-        List<TbColumnLink> bottomLinkList = columnLinkService.findColumnLinkList(Constants.BOTTOM_LINK_TYPE);
-        List<TbColumnLink> bottomColumnList = columnLinkService.findColumnLinkList(Constants.BOTTOM_COLUMN_TYPE);
+        List<TbColumnLink> bottomLinkList = columnLinkService.findColumnLinkList();
+        List<TbColumnStr> bottomStrList = columnStrService.findColumnLinkList();
         resMap.put("bottomColumnMap", map);
-        resMap.put("ColumnLink", bottomLinkList);
-        resMap.put("bottomColumnList", bottomColumnList);
+        resMap.put("columnLink", bottomLinkList);
+        resMap.put("bottomStr", bottomStrList);
         resMap.put("bottomDescription","© 2008-2019 南通企智网络工程有限公司 版权所有   苏ICP备08016937号   腾云网是南通企智网络工程有限公司旗下建站品牌  地址：江苏省南通市工农路488号软件园A座1F   \n" +
                 "    网站地图   站长统计  售前咨询：4008-400-301  售后服务：4008-868-220 ");
         commonRet.setData(resMap);

@@ -10,9 +10,12 @@
     <!-- 自定义返回结果集 -->
     <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.TbColumnLink">
 
+        <result column="id" property="id" javaType="java.lang.Integer"></result>
+
         <result column="column_link_name" property="columnLinkName" javaType="java.lang.String"></result>
 
         <result column="column_link_url" property="columnLinkUrl" javaType="java.lang.String"></result>
+
 
 
     </resultMap>
@@ -20,11 +23,11 @@
     <!--keyProperty="id" useGeneratedKeys="true"返回自增长主键-->
 
     <insert id="addColumnLink" >
-        INSERT INTO tb_column_link(column_link_name,column_link_url,column_type) VALUES (#{columnLinkName},#{columnLinkUrl},#{columnType}) ;
+        INSERT INTO tb_column_link(column_link_name,column_link_url) VALUES (#{columnLinkName},#{columnLinkUrl}) ;
     </insert>
 
 
     <select id="findColumnLinkList" resultMap="BaseResultMap">
-        select column_link_name,column_link_url From tb_column_link where column_type = #{columnType}
+        select id,column_link_name,column_link_url From tb_column_link
     </select>
 </mapper>

@@ -27,6 +27,6 @@
 
 
     <select id="findBottomColumnList" resultMap="BaseResultMap">
-        select b.bottom_cate, a.bottom_column,a.bottom_column_url From tb_bottom_column a, tb_bottom_cate b where a.cate_id = b.id
+        select b.bottom_cate, a.bottom_column,a.bottom_column_url,a.id From tb_bottom_column a, tb_bottom_cate b where a.cate_id = b.id
     </select>
 </mapper>

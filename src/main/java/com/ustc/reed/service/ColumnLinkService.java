@@ -16,12 +16,14 @@ public class ColumnLinkService {
     @Autowired
     private ColumnLinkMapper columnLinkMapper;
 
-    public List<TbColumnLink> findColumnLinkList(Integer columnType){
+    public List<TbColumnLink> findColumnLinkList(){
 
-        return columnLinkMapper.findColumnLinkList(columnType);
+        return columnLinkMapper.findColumnLinkList();
     }
 
-    public Integer addColumnLink( Integer columnType,  String columnLinkName, String columnLinkUrl){
-        return columnLinkMapper.addColumnLink(columnType,columnLinkName,columnLinkUrl);
+    public Integer addColumnLink(String columnLinkName, String columnLinkUrl){
+        return columnLinkMapper.addColumnLink(columnLinkName,columnLinkUrl);
     }
+
+
 }

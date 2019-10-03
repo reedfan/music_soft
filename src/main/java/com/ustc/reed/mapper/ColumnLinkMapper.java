@@ -11,6 +11,6 @@ import java.util.List;
 @MapperScan
 @Mapper
 public interface ColumnLinkMapper {
-    Integer addColumnLink( Integer columnType,  String columnLinkName, String columnLinkUrl);
-    List<TbColumnLink> findColumnLinkList(Integer columnType);
+    Integer addColumnLink(String columnLinkName, String columnLinkUrl);
+    List<TbColumnLink> findColumnLinkList();
 }

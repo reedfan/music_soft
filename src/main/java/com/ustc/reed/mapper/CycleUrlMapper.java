@@ -11,5 +11,6 @@ import java.util.List;
 
 public interface CycleUrlMapper {
     List<String> findCycleUrlList();
+
     Integer addCycleUrl(String cycleUrl);
 }

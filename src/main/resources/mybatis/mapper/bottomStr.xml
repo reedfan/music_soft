@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ustc.reed.mapper.ColumnStrMapper">
+
+
+
+    <!-- 自定义返回结果集 -->
+    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.TbColumnStr">
+
+        <result column="id" property="id" javaType="java.lang.Integer"></result>
+
+        <result column="column_str" property="columnStr" javaType="java.lang.String"></result>
+
+
+
+
+    </resultMap>
+
+    <!--keyProperty="id" useGeneratedKeys="true"返回自增长主键-->
+
+    <insert id="addColumnStr" >
+        INSERT INTO tb_column_str(column_str) VALUES (#{columnStr}) ;
+    </insert>
+
+
+    <select id="findColumnStrList" resultMap="BaseResultMap">
+        select id, column_str From tb_column_str
+    </select>
+</mapper>

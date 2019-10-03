@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Param;
 /**
  * created by reedfan on 2019/9/29 0029
  */
-public interface TbSysAdminMapper {
+public interface SysAdminMapper {
     TbSysAdmin selectSysAdminByPhoneNumber(@Param("phoneNumber") String phoneNumber, @Param("passWord") String passWord);
 }
