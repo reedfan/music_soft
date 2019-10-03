@@ -24,7 +24,7 @@ public class CycleUrlController {
         return commonRet;
     }
 
-    @PutMapping("/admin/update_cycle_url")
+    @PutMapping(value = "/admin/update_cycle_url", produces = "application/json")
     public CommonRet updateBottomColumn(@RequestParam(value = "cycle_url", required = true)  String cycleUrl,
 
                                         @RequestParam(value = "id", required = true)Integer id){

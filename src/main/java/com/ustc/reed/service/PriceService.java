@@ -6,6 +6,7 @@ import com.ustc.reed.mapper.CycleUrlMapper;
 import com.ustc.reed.mapper.PriceMapper;
 import com.ustc.reed.pojo.TbPrice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,11 @@ public class PriceService {
 
     public Integer addPrice(Integer period, Integer price, String version){
         return priceMapper.addPrice(period,price,version);
+    }
+
+    @CacheEvict(cacheNames ={"home"} ,key = "'getPriceList'")
+    public Integer updatePrice(Integer id,Integer period, Integer price, String version){
+        return priceMapper.updatePrice(id,period,price,version);
     }
 
     @Cacheable(cacheNames ={"home"} ,key = "'getPriceList'")

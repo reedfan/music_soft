@@ -13,6 +13,7 @@ import java.util.List;
 
 public interface PriceMapper {
     List<TbPrice> findPriceList();
+    Integer updatePrice(Integer id, Integer period, Integer price, String version);
 
     Integer addPrice(Integer period, Integer price, String version);
 }

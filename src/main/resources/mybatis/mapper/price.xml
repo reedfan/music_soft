@@ -24,6 +24,12 @@
         INSERT INTO tb_price(period,version,price) VALUES (#{period},#{version},#{price}) ;
     </insert>
 
+    <update id="updatePrice" >
+        UPDATE tb_price SET period = #{period}, version = #{version},price = #{price} where id = #{id} ;
+    </update>
+
+
+
 
     <select id="findPriceList" resultMap="BaseResultMap">
         select period,price,version From tb_price;
