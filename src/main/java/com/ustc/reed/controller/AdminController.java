@@ -12,6 +12,7 @@ import com.ustc.reed.pojo.TbSysAdmin;
 import com.ustc.reed.service.SysAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class AdminController {
     @Autowired
     private SysAdminService sysAdminService;
 
-    @GetMapping("/admin/login")
+    @PostMapping("/admin/login")
     public CommonRet getBottomColumnList( @RequestParam(value = "phone_number", required = true) String phoneNumber,
                                           @RequestParam(value = "pass_word", required = true) String passWord) {
         CommonRet commonRet = new CommonRet();

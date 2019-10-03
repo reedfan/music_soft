@@ -13,4 +13,11 @@ public interface CycleUrlMapper {
     List<String> findCycleUrlList();
 
     Integer addCycleUrl(String cycleUrl);
+
+    Integer updateCycleUrl(String cycleUrl,Integer id);
+
+    Integer deleteCycleUrlById(Integer id);
+
+
+
 }

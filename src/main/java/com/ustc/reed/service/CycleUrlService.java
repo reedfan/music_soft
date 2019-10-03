@@ -19,6 +19,14 @@ public class CycleUrlService {
         return cycleUrlMapper.addCycleUrl("www.alibaba.com");
     }
 
+    public Integer updateCycleUrl(String cycleUrl,Integer id){
+        return cycleUrlMapper.updateCycleUrl(cycleUrl,id);
+    }
+
+    public Integer deleteCycleUrlById(Integer id){
+        return cycleUrlMapper.deleteCycleUrlById(id);
+    }
+
     @Cacheable(cacheNames ={"home"} ,key = "'getCycleUrlList'")
     public List<String> getCycleUrlList(){
         List<String> list = null;

@@ -6,14 +6,32 @@
 <mapper namespace="com.ustc.reed.mapper.CycleUrlMapper">
 
 
+    <!-- 自定义返回结果集 -->
+    <resultMap id="BaseResultMap" type="com.ustc.reed.pojo.TbCycleUrl">
+
+        <result column="cycle_url" property="cycleUrl" javaType="java.lang.String"></result>
+
+        <result column="id" property="id" javaType="java.lang.Integer"></result>
+
+    </resultMap>
+
+
+
     <!--keyProperty="id" useGeneratedKeys="true"返回自增长主键-->
 
     <insert id="addCycleUrl" >
         INSERT INTO tb_cycle_url(cycle_url) VALUES (#{cycleUrl}) ;
     </insert>
 
+    <delete id="deleteCycleUrlById" >
+        delete from tb_cycle_url where id = #{id};
+    </delete>
 
-    <select id="findCycleUrlList" resultType="java.lang.String">
-        select cycle_url From tb_cycle_url;
+    <update id="updateCycleUrl" >
+        UPDATE tb_cycle_url SET cycle_url = #{cycleUrl} where id = #{id} ;
+    </update>
+
+    <select id="findCycleUrlList" resultMap="BaseResultMap">
+        select id, cycle_url From tb_cycle_url;
     </select>
 </mapper>

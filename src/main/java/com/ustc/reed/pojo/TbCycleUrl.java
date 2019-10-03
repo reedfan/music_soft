@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class TbCycleUrl {
     private Integer id;
-    private String CycleUrl;
+    private String cycleUrl;
 }
