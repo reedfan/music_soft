@@ -1,11 +1,14 @@
 package com.ustc.reed.configure;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class MyWebAppConfigurer implements WebMvcConfigurer {
+    @Value("${upload-path}")
+    private String path;
     /**
      * 资源映射路径
      * addResourceHandler：访问映射路径
@@ -13,8 +16,8 @@ public class MyWebAppConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-      //  registry.addResourceHandler("/image/**").addResourceLocations("file:/Users/qufan/Downloads/pic/");
-        registry.addResourceHandler("/image/**").addResourceLocations("file:/home/pic/");
+        registry.addResourceHandler("/image/**").addResourceLocations("file:"+path);
+       // registry.addResourceHandler("/image/**").addResourceLocations("file:/home/pic/");
     }
 
 }

@@ -15,8 +15,8 @@ public class CycleUrlService {
     @Autowired
     private CycleUrlMapper cycleUrlMapper;
 
-    public Integer addCycleUrl(){
-        return cycleUrlMapper.addCycleUrl("www.alibaba.com");
+    public Integer addCycleUrl(String url){
+        return cycleUrlMapper.addCycleUrl(url);
     }
 
     public Integer updateCycleUrl(String cycleUrl,Integer id){

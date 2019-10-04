@@ -37,7 +37,7 @@ public class PicController {
 
 
 
-//    @PostMapping("/file")
+  //  @PostMapping("/file")
     public String upload(@RequestParam("fileName")MultipartFile file, Map<String,Object> map){
         // 要上传的目标文件存放路径
         String localPath = "/Users/qufan/Downloads/pic";

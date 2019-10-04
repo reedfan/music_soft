@@ -9,7 +9,7 @@ public class FileUtils {
 
     public static boolean upload(MultipartFile file,String path,String fileName){
 
-        String realPath = path+"/"+FileNameUtils.getFileName(fileName);
+        String realPath = path+"/"+fileName;
 
         File dest = new File(realPath);
 
