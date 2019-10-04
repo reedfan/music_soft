@@ -34,9 +34,9 @@ public class BottomController {
 
     @PostMapping("/admin/add_bottom_column")
     public CommonRet addBottomColumn(
-            @RequestParam(value = "cate_id", required = true) Integer cateId,
-            @RequestParam(value = "bottom_column", required = true) String bottomColumn,
-            @RequestParam(value = "bottom_column_url", required = true) String bottomColumnUrl) {
+            @RequestParam(value = "cateId", required = true) Integer cateId,
+            @RequestParam(value = "bottomColumn", required = true) String bottomColumn,
+            @RequestParam(value = "bottomColumnUrl", required = true) String bottomColumnUrl) {
         CommonRet commonRet = new CommonRet();
         Integer data = bottomColumnService.addBottomColumn(cateId, bottomColumn, bottomColumnUrl);
         commonRet.setData(data);

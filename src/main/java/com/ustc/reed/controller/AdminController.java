@@ -26,8 +26,8 @@ public class AdminController {
     private SysAdminService sysAdminService;
 
     @PostMapping("/admin/login")
-    public CommonRet getBottomColumnList( @RequestParam(value = "phone_number", required = true) String phoneNumber,
-                                          @RequestParam(value = "pass_word", required = true) String passWord) {
+    public CommonRet getBottomColumnList( @RequestParam(value = "phoneNumber", required = true) String phoneNumber,
+                                          @RequestParam(value = "passWord", required = true) String passWord) {
         CommonRet commonRet = new CommonRet();
         TbSysAdmin tbSysAdmin = sysAdminService.selectSysAdminByPhoneNumber(phoneNumber,passWord);
         commonRet.setData(tbSysAdmin);

@@ -29,8 +29,8 @@ public class UserController {
     private SysUserService sysUserService;
 
     @PostMapping("/api/login")
-    public CommonRet sysUserLogin( @RequestParam(value = "phone_number", required = true) String phoneNumber,
-                                          @RequestParam(value = "pass_word", required = true) String passWord) {
+    public CommonRet sysUserLogin( @RequestParam(value = "phoneNumber", required = true) String phoneNumber,
+                                          @RequestParam(value = "passWord", required = true) String passWord) {
         CommonRet commonRet = new CommonRet();
         TbSysUser sysUser = sysUserService.selectSysUserByPhoneNumber(phoneNumber, passWord);
         if(sysUser == null){
@@ -43,9 +43,9 @@ public class UserController {
     }
 
     @PostMapping("/api/register")
-    public CommonRet sysUserRegister(@RequestParam(value = "phone_number", required = true) String phoneNumber,
-                                     @RequestParam(value = "pass_word", required = true) String passWord,
-                                     @RequestParam(value = "sms_code", required = true) String smsCode){
+    public CommonRet sysUserRegister(@RequestParam(value = "phoneNumber", required = true) String phoneNumber,
+                                     @RequestParam(value = "passWord", required = true) String passWord,
+                                     @RequestParam(value = "smsCode", required = true) String smsCode){
         CommonRet commonRet = new CommonRet();
         if(!"123456".equals(smsCode)){
             commonRet.setSuccess(false);

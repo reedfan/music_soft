@@ -58,9 +58,9 @@ mybatis:
 #upload-path: /Users/qufan/Downloads/pic/
 upload-path: /home/pic/
 
-#local-ip: 47.101.47.253:8080
+local-ip: 47.101.47.253:8080
 
-local-ip: localhost:8080
+#local-ip: localhost:8080
 
 cache:
   spec[home]: initialCapacity=1000,maximumSize=2000,expireAfterWrite=10s

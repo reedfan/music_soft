@@ -20,9 +20,9 @@ public class ColumnLinkController {
     private ColumnLinkService columnLinkService;
 
     @PostMapping("/admin/add_column_link")
-    public CommonRet addColumnLink(@RequestParam(value = "column_link_name", required = true) String columnLinkName,
+    public CommonRet addColumnLink(@RequestParam(value = "columnLinkName", required = true) String columnLinkName,
 
-                                   @RequestParam(value = "column_link_url", required = true)String columnLinkUrl){
+                                   @RequestParam(value = "columnLinkUrl", required = true)String columnLinkUrl){
         CommonRet commonRet = new CommonRet();
         Integer res = columnLinkService.addColumnLink(columnLinkName,columnLinkUrl);
         commonRet.setData(res);

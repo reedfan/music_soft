@@ -32,7 +32,7 @@ public class CycleUrlService {
     @CacheEvict(cacheNames ={"home"} ,key = "'getCycleUrlList'")
     public Boolean deleteCycleUrlById(Integer id,String cycleUrl){
 
-        cycleUrl = cycleUrl.replace("image","home/pic");
+        cycleUrl = "home/pic/"+cycleUrl.substring(cycleUrl.indexOf("image/")+"image/".length());
 
         FileUtils.deleteServerFile(cycleUrl);
         cycleUrlMapper.deleteCycleUrlById(id);

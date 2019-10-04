@@ -21,7 +21,7 @@ public class ColumnStrController {
     private ColumnStrService columnStrService;
 
     @PostMapping("/admin/add_column_str")
-    public CommonRet addColumnLink(@RequestParam(value = "column_str", required = true) String columnStr){
+    public CommonRet addColumnLink(@RequestParam(value = "columnStr", required = true) String columnStr){
         CommonRet commonRet = new CommonRet();
         Integer res = columnStrService.addColumnLink(columnStr);
         commonRet.setData(res);

@@ -53,7 +53,7 @@ public class CycleUrlController {
     }
 
     @PutMapping(value = "/admin/update_cycle_url", produces = "application/json")
-    public CommonRet updateBottomColumn(@RequestParam(value = "cycle_url", required = true)  String cycleUrl,
+    public CommonRet updateBottomColumn(@RequestParam(value = "cycleUrl", required = true)  String cycleUrl,
 
                                         @RequestParam(value = "id", required = true)Integer id){
         CommonRet commonRet = new CommonRet();
@@ -63,7 +63,7 @@ public class CycleUrlController {
     }
 
     @DeleteMapping("/admin/delete_cycle_url")
-    public CommonRet deleteCycleUrlById(@RequestParam(value = "cycle_url", required = true)  String cycleUrl,
+    public CommonRet deleteCycleUrlById(@RequestParam(value = "cycleUrl", required = true)  String cycleUrl,
                                         @RequestParam(value = "id", required = true) Integer id){
         CommonRet commonRet = new CommonRet();
 
