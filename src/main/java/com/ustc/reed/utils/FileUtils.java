@@ -7,6 +7,17 @@ import java.io.IOException;
 
 public class FileUtils {
 
+    public static boolean deleteServerFile(String filePath){
+        boolean delete_flag = false;
+        File file = new File(filePath);
+        if (file.exists() && file.isFile() && file.delete())
+            delete_flag = true;
+        else
+            delete_flag = false;
+        return delete_flag;
+    }
+
+
     public static boolean upload(MultipartFile file,String path,String fileName){
 
         String realPath = path+"/"+fileName;

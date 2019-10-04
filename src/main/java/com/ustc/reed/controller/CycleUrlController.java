@@ -1,11 +1,13 @@
 package com.ustc.reed.controller;
 
 import com.ustc.reed.common.CommonRet;
+import com.ustc.reed.exception.InternalException;
 import com.ustc.reed.pojo.BottomColumnVO;
 import com.ustc.reed.service.BottomColumnService;
 import com.ustc.reed.service.CycleUrlService;
 import com.ustc.reed.utils.FileNameUtils;
 import com.ustc.reed.utils.FileUtils;
+import com.ustc.reed.utils.IpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -24,19 +26,28 @@ public class CycleUrlController {
     @Value("${upload-path}")
     private String path;
 
+    @Value("${local-ip}")
+    private String ip;
+
 
     @PostMapping("/admin/add_cycle_url")
     public CommonRet addBottomColumn(@RequestParam("fileName") MultipartFile file) throws UnknownHostException {
         //获取本机的ip地址和域名
-        InetAddress ia = InetAddress.getLocalHost();
-        String ip = ia.getHostAddress();
-        String originalFileName = file.getOriginalFilename();
-        String newFileName = FileNameUtils.getFileName(originalFileName);
-        CommonRet commonRet = new CommonRet();
 
-        FileUtils.upload(file,path,newFileName);
+        CommonRet commonRet = null;
+        Integer data = null;
+        try {
 
-        Integer data = cycleUrlService.addCycleUrl(ip+"/image"+newFileName);
+            String originalFileName = file.getOriginalFilename();
+            String newFileName = FileNameUtils.getFileName(originalFileName);
+            commonRet = new CommonRet();
+
+            FileUtils.upload(file,path,newFileName);
+
+            data = cycleUrlService.addCycleUrl(ip+"/image/"+newFileName);
+        } catch (Exception e) {
+            throw new InternalException("上传轮播照片失败");
+        }
         commonRet.setData(data);
         return commonRet;
     }
@@ -52,9 +63,11 @@ public class CycleUrlController {
     }
 
     @DeleteMapping("/admin/delete_cycle_url")
-    public CommonRet deleteCycleUrlById(@RequestParam(value = "id", required = true) Integer id){
+    public CommonRet deleteCycleUrlById(@RequestParam(value = "cycle_url", required = true)  String cycleUrl,
+                                        @RequestParam(value = "id", required = true) Integer id){
         CommonRet commonRet = new CommonRet();
-        Integer data = cycleUrlService.deleteCycleUrlById(id);
+
+        Boolean data = cycleUrlService.deleteCycleUrlById(id,cycleUrl);
         commonRet.setData(data);
         return commonRet;
 
